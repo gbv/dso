@@ -12,16 +12,16 @@
   <rdf:Description rdf:about="http://purl.org/ontology/dso">
     <vann:preferredNamespacePrefix>dso</vann:preferredNamespacePrefix>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/ontology/dso#Service">
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#DocumentService">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/ontology/dso#Service">
-    <rdfs:label>Service</rdfs:label>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#DocumentService">
+    <rdfs:label>DocumentService</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/ontology/dso#Service">
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#DocumentService">
     <rdfs:subClassOf rdf:resource="http://purl.org/ontology/ssso#ServiceEvent"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/ontology/dso#Service">
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#DocumentService">
     <rdfs:isDefinedBy rdf:resource="http://purl.org/ontology/dso"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/ontology/dso#Loan">
@@ -31,7 +31,7 @@
     <rdfs:label>Loan</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/ontology/dso#Loan">
-    <rdfs:subClassOf rdf:resource="http://purl.org/ontology/dso#Service"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/ontology/dso#DocumentService"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/ontology/dso#Loan">
     <rdfs:isDefinedBy rdf:resource="http://purl.org/ontology/dso"/>
@@ -43,7 +43,7 @@
     <rdfs:label>Presentation</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/ontology/dso#Presentation">
-    <rdfs:subClassOf rdf:resource="http://purl.org/ontology/dso#Service"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/ontology/dso#DocumentService"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/ontology/dso#Presentation">
     <rdfs:isDefinedBy rdf:resource="http://purl.org/ontology/dso"/>
@@ -55,7 +55,7 @@
     <rdfs:label>Interloan</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/ontology/dso#Interloan">
-    <rdfs:subClassOf rdf:resource="http://purl.org/ontology/dso#Service"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/ontology/dso#DocumentService"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/ontology/dso#Interloan">
     <rdfs:isDefinedBy rdf:resource="http://purl.org/ontology/dso"/>
@@ -67,30 +67,39 @@
     <rdfs:label>OpenAccess</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/ontology/dso#OpenAccess">
-    <rdfs:subClassOf rdf:resource="http://purl.org/ontology/dso#Service"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/ontology/dso#DocumentService"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/ontology/dso#OpenAccess">
     <rdfs:isDefinedBy rdf:resource="http://purl.org/ontology/dso"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/ontology/dso#withDocument">
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#hasDocument">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/ontology/dso#withDocument">
-    <rdfs:label>withDocument</rdfs:label>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#hasDocument">
+    <rdfs:label>hasDocument</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/ontology/dso#withDocument">
-    <rdfs:domain rdf:resource="http://purl.org/ontology/dso#Service"/>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#hasDocument">
+    <rdfs:domain rdf:resource="http://purl.org/ontology/dso#DocumentService"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/ontology/dso#withDocument">
-    <rdfs:range rdf:resource="http://purl.org/ontology/bibo/Document"/>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#hasDocument">
+    <owl:inverseOf rdf:resource="http://purl.org/ontology/dso#hasService"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/ontology/dso#withDocument">
-    <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#hasDocument">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/ontology/dso"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/ontology/dso#withDocument">
-    <owl:inverseOf rdf:resource="http://purl.org/ontology/ssso#consumedBy"/>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#hasService">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/ontology/dso#withDocument">
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#hasService">
+    <rdfs:label>hasService</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#hasService">
+    <rdfs:range rdf:resource="http://purl.org/ontology/dso#DocumentService"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#hasService">
+    <owl:inverseOf rdf:resource="http://purl.org/ontology/dso#hasDocument"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#hasService">
     <rdfs:isDefinedBy rdf:resource="http://purl.org/ontology/dso"/>
   </rdf:Description>
 </rdf:RDF>

@@ -12,41 +12,47 @@
     a owl:Ontology ;
     rdfs:label "DSO", "Document Service Ontology" .
 
+dso:DocumentService
+    a owl:Class ;
+    rdfs:isDefinedBy <http://purl.org/ontology/dso> ;
+    rdfs:label "DocumentService" ;
+    rdfs:subClassOf ssso:ServiceEvent .
+
 dso:Interloan
     a owl:Class ;
     rdfs:isDefinedBy <http://purl.org/ontology/dso> ;
     rdfs:label "Interloan" ;
-    rdfs:subClassOf dso:Service .
+    rdfs:subClassOf dso:DocumentService .
 
 dso:Loan
     a owl:Class ;
     rdfs:isDefinedBy <http://purl.org/ontology/dso> ;
     rdfs:label "Loan" ;
-    rdfs:subClassOf dso:Service .
+    rdfs:subClassOf dso:DocumentService .
 
 dso:OpenAccess
     a owl:Class ;
     rdfs:isDefinedBy <http://purl.org/ontology/dso> ;
     rdfs:label "OpenAccess" ;
-    rdfs:subClassOf dso:Service .
+    rdfs:subClassOf dso:DocumentService .
 
 dso:Presentation
     a owl:Class ;
     rdfs:isDefinedBy <http://purl.org/ontology/dso> ;
     rdfs:label "Presentation" ;
-    rdfs:subClassOf dso:Service .
+    rdfs:subClassOf dso:DocumentService .
 
-dso:Service
-    a owl:Class ;
-    rdfs:isDefinedBy <http://purl.org/ontology/dso> ;
-    rdfs:label "Service" ;
-    rdfs:subClassOf ssso:ServiceEvent .
-
-dso:withDocument
+dso:hasDocument
     a owl:ObjectProperty ;
-    rdfs:domain dso:Service ;
+    rdfs:domain dso:DocumentService ;
     rdfs:isDefinedBy <http://purl.org/ontology/dso> ;
-    rdfs:label "withDocument" ;
-    rdfs:range bibo:Document, foaf:Document ;
-    owl:inverseOf ssso:consumedBy .
+    rdfs:label "hasDocument" ;
+    owl:inverseOf dso:hasService .
+
+dso:hasService
+    a owl:ObjectProperty ;
+    rdfs:isDefinedBy <http://purl.org/ontology/dso> ;
+    rdfs:label "hasService" ;
+    rdfs:range dso:DocumentService ;
+    owl:inverseOf dso:hasDocument .
 
