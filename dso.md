@@ -54,30 +54,44 @@ The Document Service Ontology (DSO) is defined in RDF/Turtle as following:
 
 # Overview
 
-...
+The following diagram illustrates the classes and properties defined in this ontology.
 
-This ontology does not make any assumptions about types of documents. A
-document may be an abstract entity (e.g. a work or an edition of a book), a
-physical or digital copy, or a unique object (e.g. a statue in a museum).
+~~~ {.ditaa}
+    +---------------------+
+    |  dso:ServiceEvent   |
+    | +-----------------+ |  hasDocument    +-----------------------+
+    | | DocumentService |------------------>| ...any document class |
+    | |                 |<------------------|                       |
+    | |  Loan           | |  hasService     +-----------------------+
+    | |  Presentation   | |
+    | |  Interloan      | |
+    | |  OpenAccess     | |
+    | |  Digitization   | |
+    | |  Identification | |
+    | |  ...            | |
+    | +-----------------+ |
+    +---------------------+
+~~~
 
-...
-
+This ontology does not make any assumptions about types of documents.
+A document may be an abstract entity (e.g. a work or an edition of a book),
+a physical or digital copy, or a unique object (e.g. a statue in a museum).
+Some service types, however do only make sense with specific types of
+documents.
 
 # Classes
 
-## Service
+## DocumentService
 
-[Service]: #service
+[DocumentService]: #documentservice
 
 A document service is a kind of service event ([ssso:ServiceEvent]) that is
 somehow related to one or more documents.
 
-    dso:Service a owl:Class ;
-        rdfs:label "Service" ;
+    dso:DocumentService a owl:Class ;
+        rdfs:label "DocumentService" ;
         rdfs:subClassOf ssso:ServiceEvent ;
         rdfs:isDefinedBy <> .
-
-*should this class be renamed to "DocumentService"?*
 
 [ssso:ServiceEvent]: http://purl.org/ontology/ssso#ServiceEvent
 
@@ -85,13 +99,13 @@ somehow related to one or more documents.
 
 [Loan]: #loan
 
-A loan is a service event that involes the temporary transfer of usage rights
+A loan is a [DocumentService] event that involes the temporary transfer of usage rights
 of a document from a service provider (e.g. a library) to a service consumer
 (e.g. a library patron).
 
     dso:Loan a owl:Class ;
         rdfs:label "Loan" ;
-        rdfs:subClassOf dso:Service ;
+        rdfs:subClassOf dso:DocumentService ;
         rdfs:isDefinedBy <> .
 
 ## Presentation
@@ -104,7 +118,7 @@ or museum.
 
     dso:Presentation a owl:Class ;
         rdfs:label "Presentation" ;
-        rdfs:subClassOf dso:Service ;
+        rdfs:subClassOf dso:DocumentService ;
         rdfs:isDefinedBy <> .
 
 ## Interloan
@@ -115,7 +129,7 @@ For interloan a document is made accessible mediated by another institution.
 
     dso:Interloan a owl:Class ;
         rdfs:label "Interloan" ;
-        rdfs:subClassOf dso:Service ;
+        rdfs:subClassOf dso:DocumentService ;
         rdfs:isDefinedBy <> .
 
 ## OpenAccess
@@ -127,7 +141,7 @@ restrictions by the service provider (Open Access or free copies).
 
     dso:OpenAccess a owl:Class ;
         rdfs:label "OpenAccess" ;
-        rdfs:subClassOf dso:Service ;
+        rdfs:subClassOf dso:DocumentService ;
         rdfs:isDefinedBy <> .
 
 
@@ -135,8 +149,8 @@ restrictions by the service provider (Open Access or free copies).
 
 [Digitization]: #digitization
 
-A digitization service creates a digital document from a physical document, for
-instance a digital photograph or a 3D-scan of a physical object.
+A digitization [DocumentService] creates a digital document from a physical
+document, for instance a digital photograph or a 3D-scan of a physical object.
 
 *This class is just a suggestion!*
 
@@ -147,28 +161,40 @@ A service to identify a document that is only known with limited properties
 (e.g. only parts of the title). In RDF such document is typically expressed by
 a blank node.
 
-*This class is just a suggestion!*
-
+*This class is experimental!*
 
 # Properties
 
-## withDocument
+## hasDocument
 
-[withDocument]: #withdocument
+[hasDocument]: #hasDocument
 
-Relates a document [service] to a document. The relation is rather lax as it
+Relates a [DocumentService] to a document. The relation is rather lax as it
 only tells that a specific document is somehow involved in a specific document
 service event.  To express more reliable relations, one should define and use
 more specific sub-properties, such as [daia:availableFor] and
 [daia:unavailableFor].
 
-    dso:withDocument a owl:ObjectProperty ;
-        rdfs:label "withDocument" ;
-        rdfs:domain dso:Service ;
-        rdfs:range bibo:Document, foaf:Document ;
-        owl:inverseOf ssso:consumedBy ;
+    dso:hasDocument a owl:ObjectProperty ;
+        rdfs:label "hasDocument" ;
+        rdfs:domain dso:DocumentService ;
+        owl:inverseOf dso:hasService ;
         rdfs:isDefinedBy <> .
 
+[daia:availableFor]: http://purl.org/ontology/daia/availableFor 
+[daia:unavailableFor]: http://purl.org/ontology/daia/unavailableFor 
+
+## hasService
+
+[hasService]: #hasService
+
+Relates a document to a [DocumentService].
+
+    dso:hasService a owl:ObjectProperty ;
+        rdfs:label "hasService" ;
+        rdfs:range dso:DocumentService ;
+        owl:inverseOf dso:hasDocument ;
+        rdfs:isDefinedBy <> .
 
 # Related ontologies
 
