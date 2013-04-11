@@ -1,7 +1,3 @@
-% Document Service Ontology (DSO)
-% Jakob Voß (VZG)
-% GIT_REVISION_DATE
-
 # Introduction
 
 The **Document Service Ontology (DSO)** is a micro-ontology that defines a set
@@ -18,7 +14,11 @@ Markdown syntax. Sources and updates are available at
 modified at GIT_REVISION_DATE with revision GIT_REVISION_HASH.
 
 The current version of this ontology is a preliminary draft for open
-discussion.
+discussion. [Feedback](https://github.com/gbv/dso/issues) is welcome!
+
+**Revision history**
+
+GIT_CHANGES
 
 ## Terminology
 
@@ -206,7 +206,6 @@ services defined in DSO have earlier been defined as part of the DAIA ontology,
 which now makes use of DSO. The core concept of a service is based on the definition
 of a service event in the Simple Service Status Ontology (SSSO).
 
-
 # References
 
 ## Normative References
@@ -225,5 +224,6 @@ of a service event in the Simple Service Status Ontology (SSSO).
 * **[DAIA]** J. Voß: *Document Availability Information API (DAIA)*.
   Work in progress at <http://gbv.github.com/daiaspec/>.
 
-* ...
+* **[PAIA]** J. Voß: *Patrons Account Information API*. 2013.
+  Work in progress at <http://purl.org/ontology/paia>.
 
