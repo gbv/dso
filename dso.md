@@ -9,16 +9,19 @@ archives.
 This HTML document and RDF serializations of the Document Service Ontology
 ([**`dso.ttl`**](dso.ttl) in RDF/Turtle and [**`ssss.owl`**](dso.owl) in
 RDF/XML) are generated automatically from a source file written in Pandoc
-Markdown syntax. Sources and updates are available at
-<http://github.com/gbv/dso>. The current version of this document was last
-modified at GIT_REVISION_DATE with revision GIT_REVISION_HASH.
+Markdown syntax.^[Documents are generated using
+[makespec](http://jakobib.github.io/makespec/).] Sources and updates are
+available at <http://github.com/gbv/dso>.
+
+This is version {VERSION}, last modified at {GIT_REVISION_DATE} with revision
+{GIT_REVISION_HASH}.
 
 The current version of this ontology is a preliminary draft for open
 discussion. [Feedback](https://github.com/gbv/dso/issues) is welcome!
 
 **Revision history**
 
-GIT_CHANGES
+{GIT_CHANGES}
 
 ## Terminology
 
