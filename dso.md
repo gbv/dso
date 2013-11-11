@@ -6,7 +6,7 @@ archives.
 
 ## Status of this document
 
-This HTML document and RDF serializations of the Document Service Ontology
+This document and RDF serializations of the Document Service Ontology
 ([**`dso.ttl`**](dso.ttl) in RDF/Turtle and [**`ssss.owl`**](dso.owl) in
 RDF/XML) are generated automatically from a source file written in Pandoc
 Markdown syntax.^[Documents are generated using
@@ -25,8 +25,9 @@ discussion. [Feedback](https://github.com/gbv/dso/issues) is welcome!
 
 ## Namespaces and ontology
 
-The URI namespace of this ontology is <http://purl.org/ontology/dso#>. The
-namespace prefix `dso` is recommended. The URI of this ontology as a whole
+The URI namespace of this ontology is 
+[http://purl.org/ontology/dso#](http://purl.org/ontology/dso#).
+The namespace prefix `dso` is recommended. The URI of this ontology as a whole
 is <http://purl.org/ontology/dso>.
 
     @prefix dso: <http://purl.org/ontology/dso#> .
@@ -34,12 +35,15 @@ is <http://purl.org/ontology/dso>.
 
 The following namespace prefixes are used to refer to [related ontologies]:
 
-    @prefix bibo:  <http://purl.org/ontology/bibo/> .
-    @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
-    @prefix owl:   <http://www.w3.org/2002/07/owl#> .
-    @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
-    @prefix ssso:  <http://purl.org/ontology/ssso#> .
-    @prefix vann:  <http://purl.org/vocab/vann/> .
+    @prefix bibo:   <http://purl.org/ontology/bibo/> .
+    @prefix daia:   <http://purl.org/ontology/daia/> .
+    @prefix foaf:   <http://xmlns.com/foaf/0.1/> .
+    @prefix gr:     <http://purl.org/goodrelations/v1#> .
+    @prefix owl:    <http://www.w3.org/2002/07/owl#> .
+    @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+    @prefix schema: <http://schema.org/> .
+    @prefix ssso:   <http://purl.org/ontology/ssso#> .
+    @prefix vann:   <http://purl.org/vocab/vann/> .
 
 The Document Service Ontology (DSO) is defined in RDF/Turtle as following:
 
@@ -48,57 +52,56 @@ The Document Service Ontology (DSO) is defined in RDF/Turtle as following:
         rdfs:label "DSO" ;
         vann:preferredNamespacePrefix "dso" .
 
-
 # Overview
 
-The following diagram illustrates the classes and properties defined in this ontology.
+This ontology defines the core class [DocumentService] representing the set of
+possible services related to documents. The set of documents is not limited to
+a specific class (such as [bibo:Document] from the Bibliographic Ontology,
+[foaf:Document] from FOAF vocabulary, and [schema:CreativeWork] from schema.org
+vocabulary) although use of these classes is recommended. A document may be an
+abstract entity (e.g. a work or an edition of a book), a physical or digital
+copy, or a unique object (e.g. a statue in a museum). Some document services,
+however do only make sense with specific types of documents. To link documents
+and document services, this ontology defines the inverse properties
+[hasDocument] and [hasService]. The ontology further defines a set of [specific
+document services](#specific-document-service-classes), typically found in the
+context of GLAM (galleries, libraries, archives, and museums) institutions.
 
-~~~ {.ditaa}
-    +---------------------+
-    |  dso:ServiceEvent   |
-    | +-----------------+ |  hasDocument    +-----------------------+
-    | | DocumentService |------------------>| ...any document class |
-    | |                 |<------------------|                       |
-    | |  Loan           | |  hasService     +-----------------------+
-    | |  Presentation   | |
-    | |  Interloan      | |
-    | |  OpenAccess     | |
-    | |  Digitization   | |
-    | |  Identification | |
-    | |  ...            | |
-    | +-----------------+ |
-    +---------------------+
-~~~
+[bibo:Document]: http://purl.org/ontology/bibo/Document
+[foaf:Document]: http://xmlns.com/foaf/0.1/Document
+[schema:CreativeWork]: http://schema.org/CreativeWork
 
-This ontology does not make any assumptions about types of documents.
-A document may be an abstract entity (e.g. a work or an edition of a book),
-a physical or digital copy, or a unique object (e.g. a statue in a museum).
-Some service types, however do only make sense with specific types of
-documents.
+# Document service class
 
-# Classes
+[DocumentService]: #document-service-class
 
-## DocumentService
-
-[DocumentService]: #documentservice
-
-A document service is a kind of service event ([ssso:ServiceEvent]) that is
-somehow related to one or more documents.
+A document service is a kind of service that is somehow related to one or more
+documents. To indicate the specific type of document service, one should use a
+subclass of this class and assing additional service types, such as
+[ssso:ServiceEvent] from the Simple Service Status Ontology, [schema:Offer]
+or [schema:Product] from schema.org vocabulary, and [gr:Offering] or
+[gr:ProductOrService] from GoodRelations vocabulary.
 
     dso:DocumentService a owl:Class ;
         rdfs:label "DocumentService" ;
-        rdfs:subClassOf ssso:ServiceEvent ;
+        rdfs:seeAlso ssso:ServiceEvent, gr:Offering, schema:Offer ;
         rdfs:isDefinedBy <> .
 
 [ssso:ServiceEvent]: http://purl.org/ontology/ssso#ServiceEvent
+[schema:Offer]: http://schema.org/Offer
+[schema:Product]: http:/schema.org/Product
+[gr:Offering]: http://purl.org/goodrelations/v1#Offering
+[gr:ProductOrService]: http://purl.org/goodrelations/v1#ProductOrService
+
+# Specific document service classes
 
 ## Loan
 
 [Loan]: #loan
 
-A loan is a [DocumentService] event that involves the temporary transfer of usage rights
-of a document from a service provider (e.g. a library) to a service consumer
-(e.g. a library patron).
+A loan is a [DocumentService] that involves the temporary transfer of usage
+rights of a document from a service provider (e.g. a library) to a service
+consumer (e.g. a library patron).
 
     dso:Loan a owl:Class ;
         rdfs:label "Loan" ;
@@ -168,14 +171,15 @@ a blank node.
 
 Relates a [DocumentService] to a document. The relation is rather lax as it
 only tells that a specific document is somehow involved in a specific document
-service event.  To express more reliable relations, one should define and use
-more specific sub-properties, such as [daia:availableFor] and
-[daia:unavailableFor].
+service.  To express more specific relations, one should define and use
+sub-properties, such as [daia:availableFor] and [daia:unavailableFor].
 
     dso:hasDocument a owl:ObjectProperty ;
         rdfs:label "hasDocument" ;
         rdfs:domain dso:DocumentService ;
         owl:inverseOf dso:hasService ;
+        rdfs:seeAlso foaf:Document, bibo:Document ;
+        rdfs:seeAlso daia:availableFor, daia:unavailableFor ;
         rdfs:isDefinedBy <> .
 
 [daia:availableFor]: http://purl.org/ontology/daia/availableFor 
@@ -191,6 +195,8 @@ Relates a document to a [DocumentService].
         rdfs:label "hasService" ;
         rdfs:range dso:DocumentService ;
         owl:inverseOf dso:hasDocument ;
+        rdfs:seeAlso foaf:Document, bibo:Document ;
+        rdfs:seeAlso daia:availableFor, daia:unavailableFor ;
         rdfs:isDefinedBy <> .
 
 # Related ontologies
@@ -200,24 +206,41 @@ Relates a document to a [DocumentService].
 The Document Service Ontology is part of a set of micro-ontologies originally
 created to describe several aspects of libraries and similar institutions. Some
 services defined in DSO have earlier been defined as part of the DAIA ontology,
-which now makes use of DSO. The core concept of a service is based on the definition
-of a service event in the Simple Service Status Ontology (SSSO).
+which now makes use of DSO. The core concept of a service was based on the
+definition of a service event in the Simple Service Status Ontology (SSSO), but
+broadened to other kinds of services, for instance Products or Offerings as
+defined in the GoodRelations vocabulary and in schema.org vocabulary. DSO does
+not make formal assumptions about the types of documents. Suitable document
+classes are defined in the Bibliographic Ontology, in the FOAF vocabulary and
+in schema.org.
 
 # References
 
 ## Normative References
 
-* **[RFC 2396]** T. Berners-Lee et al.: *Uniform Resource Identifiers (URI): Generic Syntax*.
+* T. Berners-Lee et al.: *Uniform Resource Identifiers (URI): Generic Syntax*.
   August 1998 <http://tools.ietf.org/html/rfc2396>.
-
-* **[SSSO]** J. Voß: *Simple Service Status Ontology (SSSO)*.
-  February 2013 <http://purl.org/ontology/ssso>.
 
 ## Informative References
 
-* **[DAIA]** J. Voß: *Document Availability Information API (DAIA)*.
+* D. Brickley; L. Miller: *FOAF Vocabulary Specification 0.98*.
+  August 2010 <http://xmlns.com/foaf/spec/>.
+
+* F. Giasson; B. D'Arcus: *Bibliographic Ontology Specification*.
+  November 2009 <http://purl.org/ontology/bibo/>.
+
+* M. Hepp: *GoodRelations Language Reference*.
+  October 2011 <http://purl.org/goodrelations/v1>.
+
+* J. Voß: *Document Availability Information API (DAIA)*.
   Work in progress at <http://gbv.github.com/daiaspec/>.
 
-* **[PAIA]** J. Voß: *Patrons Account Information API*. 2013.
+* J. Voß: *Patrons Account Information API*. 2013.
   Work in progress at <http://purl.org/ontology/paia>.
+
+* J. Voß: *Simple Service Status Ontology (SSSO)*.
+  February 2013 <http://purl.org/ontology/ssso>.
+
+* *schema.org Vocabulary*. 
+  <http://schema.org/>
 
