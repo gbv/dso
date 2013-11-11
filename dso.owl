@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rdf:RDF xmlns:bibo="http://purl.org/ontology/bibo/" xmlns:dso="http://purl.org/ontology/dso#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:ssso="http://purl.org/ontology/ssso#" xmlns:vann="http://purl.org/vocab/vann/">
+<rdf:RDF xmlns:bibo="http://purl.org/ontology/bibo/" xmlns:daia="http://purl.org/ontology/daia/" xmlns:dso="http://purl.org/ontology/dso#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:gr="http://purl.org/goodrelations/v1#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:schema="http://schema.org/" xmlns:ssso="http://purl.org/ontology/ssso#" xmlns:vann="http://purl.org/vocab/vann/">
   <rdf:Description rdf:about="http://purl.org/ontology/dso">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
   </rdf:Description>
@@ -19,7 +19,13 @@
     <rdfs:label>DocumentService</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/ontology/dso#DocumentService">
-    <rdfs:subClassOf rdf:resource="http://purl.org/ontology/ssso#ServiceEvent"/>
+    <rdfs:seeAlso rdf:resource="http://purl.org/ontology/ssso#ServiceEvent"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#DocumentService">
+    <rdfs:seeAlso rdf:resource="http://purl.org/goodrelations/v1#Offering"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#DocumentService">
+    <rdfs:seeAlso rdf:resource="http://schema.org/Offer"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/ontology/dso#DocumentService">
     <rdfs:isDefinedBy rdf:resource="http://purl.org/ontology/dso"/>
@@ -85,6 +91,18 @@
     <owl:inverseOf rdf:resource="http://purl.org/ontology/dso#hasService"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/ontology/dso#hasDocument">
+    <rdfs:seeAlso rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#hasDocument">
+    <rdfs:seeAlso rdf:resource="http://purl.org/ontology/bibo/Document"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#hasDocument">
+    <rdfs:seeAlso rdf:resource="http://purl.org/ontology/daia/availableFor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#hasDocument">
+    <rdfs:seeAlso rdf:resource="http://purl.org/ontology/daia/unavailableFor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#hasDocument">
     <rdfs:isDefinedBy rdf:resource="http://purl.org/ontology/dso"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/ontology/dso#hasService">
@@ -98,6 +116,18 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/ontology/dso#hasService">
     <owl:inverseOf rdf:resource="http://purl.org/ontology/dso#hasDocument"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#hasService">
+    <rdfs:seeAlso rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#hasService">
+    <rdfs:seeAlso rdf:resource="http://purl.org/ontology/bibo/Document"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#hasService">
+    <rdfs:seeAlso rdf:resource="http://purl.org/ontology/daia/availableFor"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#hasService">
+    <rdfs:seeAlso rdf:resource="http://purl.org/ontology/daia/unavailableFor"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/ontology/dso#hasService">
     <rdfs:isDefinedBy rdf:resource="http://purl.org/ontology/dso"/>

@@ -1,9 +1,12 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix dso: <http://purl.org/ontology/dso#> .
 @prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix daia: <http://purl.org/ontology/daia/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix gr: <http://purl.org/goodrelations/v1#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
 @prefix ssso: <http://purl.org/ontology/ssso#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 
@@ -16,7 +19,7 @@ dso:DocumentService
     a owl:Class ;
     rdfs:isDefinedBy <http://purl.org/ontology/dso> ;
     rdfs:label "DocumentService" ;
-    rdfs:subClassOf ssso:ServiceEvent .
+    rdfs:seeAlso gr:Offering, ssso:ServiceEvent, schema:Offer .
 
 dso:Interloan
     a owl:Class ;
@@ -47,6 +50,7 @@ dso:hasDocument
     rdfs:domain dso:DocumentService ;
     rdfs:isDefinedBy <http://purl.org/ontology/dso> ;
     rdfs:label "hasDocument" ;
+    rdfs:seeAlso bibo:Document, daia:availableFor, daia:unavailableFor, foaf:Document ;
     owl:inverseOf dso:hasService .
 
 dso:hasService
@@ -54,5 +58,6 @@ dso:hasService
     rdfs:isDefinedBy <http://purl.org/ontology/dso> ;
     rdfs:label "hasService" ;
     rdfs:range dso:DocumentService ;
+    rdfs:seeAlso bibo:Document, daia:availableFor, daia:unavailableFor, foaf:Document ;
     owl:inverseOf dso:hasDocument .
 
