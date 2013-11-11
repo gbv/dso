@@ -32,13 +32,13 @@ interpreted as described in RFC 2119.
 ## Namespaces and ontology
 
 The URI namespace of this ontology is <http://purl.org/ontology/dso#>. The
-namespace prefix `dso` is recommeded. The URI of this ontology as a whole
+namespace prefix `dso` is recommended. The URI of this ontology as a whole
 is <http://purl.org/ontology/dso>.
 
     @prefix dso: <http://purl.org/ontology/dso#> .
     @base        <http://purl.org/ontology/dso> .
 
-The following namspace prefixes are used to refer to [related ontologies]:
+The following namespace prefixes are used to refer to [related ontologies]:
 
     @prefix bibo:  <http://purl.org/ontology/bibo/> .
     @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
@@ -102,7 +102,7 @@ somehow related to one or more documents.
 
 [Loan]: #loan
 
-A loan is a [DocumentService] event that involes the temporary transfer of usage rights
+A loan is a [DocumentService] event that involves the temporary transfer of usage rights
 of a document from a service provider (e.g. a library) to a service consumer
 (e.g. a library patron).
 
