@@ -23,12 +23,6 @@ discussion. [Feedback](https://github.com/gbv/dso/issues) is welcome!
 
 {GIT_CHANGES}
 
-## Terminology
-
-The keywords "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
-"SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
-interpreted as described in RFC 2119.
-
 ## Namespaces and ontology
 
 The URI namespace of this ontology is <http://purl.org/ontology/dso#>. The
@@ -212,9 +206,6 @@ of a service event in the Simple Service Status Ontology (SSSO).
 # References
 
 ## Normative References
-
-* **[RFC 2119]** S. Bradner: *Key words for use in RFCs to Indicate Requirement Levels*. 
-  March 1997 <http://tools.ietf.org/html/rfc2119>.
 
 * **[RFC 2396]** T. Berners-Lee et al.: *Uniform Resource Identifiers (URI): Generic Syntax*.
   August 1998 <http://tools.ietf.org/html/rfc2396>.
