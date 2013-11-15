@@ -22,7 +22,7 @@
     <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-11-15</dct:modified>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/ontology/dso">
-    <owl:versionInfo>0.6.1</owl:versionInfo>
+    <owl:versionInfo>0.6.2</owl:versionInfo>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/ontology/dso">
     <cc:license rdf:resource="http://creativecommons.org/licenses/by/3.0/"/>
