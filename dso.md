@@ -125,9 +125,9 @@ consumer (e.g. a library patron).
 
 [Presentation]: #presentation
 
-A presentation involves the display or similar usage of a document in a
-restricted environment, e.g.  within the rooms or in the intranet of a library
-or museum.
+A presentation [DocumentService] involves the display or similar usage of a
+document in a restricted environment, e.g.  within the rooms or in the intranet
+of a library or museum.
 
     dso:Presentation a owl:Class ;
         rdfs:label "Presentation" ;
@@ -139,7 +139,8 @@ or museum.
 
 [Interloan]: #interloan
 
-For interloan a document is made accessible mediated by another institution.
+For an interloan [DocumentService] a document is made accessible mediated by
+another institution.
 
     dso:Interloan a owl:Class ;
         rdfs:label "Interloan" ;
@@ -151,8 +152,8 @@ For interloan a document is made accessible mediated by another institution.
 
 [OpenAccess]: #openaccess
 
-An Open Access service implies to free accessibility of a document without any
-restrictions by the service provider (Open Access or free copies).
+An Open Access [DocumentService] implies to free accessibility of a document
+without any restrictions by the service provider (Open Access or free copies).
 
     dso:OpenAccess a owl:Class ;
         rdfs:label "OpenAccess" ;
