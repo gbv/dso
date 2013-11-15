@@ -36,7 +36,9 @@ is <http://purl.org/ontology/dso>.
 The following namespace prefixes are used to refer to [related ontologies]:
 
     @prefix bibo:   <http://purl.org/ontology/bibo/> .
+    @prefix cc:     <http://creativecommons.org/ns#> .
     @prefix daia:   <http://purl.org/ontology/daia/> .
+    @prefix dct:    <http://purl.org/dc/terms/> .
     @prefix foaf:   <http://xmlns.com/foaf/0.1/> .
     @prefix gr:     <http://purl.org/goodrelations/v1#> .
     @prefix owl:    <http://www.w3.org/2002/07/owl#> .
@@ -44,13 +46,22 @@ The following namespace prefixes are used to refer to [related ontologies]:
     @prefix schema: <http://schema.org/> .
     @prefix ssso:   <http://purl.org/ontology/ssso#> .
     @prefix vann:   <http://purl.org/vocab/vann/> .
+    @prefix vs:     <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+    @prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 
 The Document Service Ontology (DSO) is defined in RDF/Turtle as following:
 
     <> a owl:Ontology ;
-        rdfs:label "Document Service Ontology" ;
+        dct:title "Document Service Ontology" ;
         rdfs:label "DSO" ;
-        vann:preferredNamespacePrefix "dso" .
+        vann:preferredNamespacePrefix "dso" ;
+        vann:preferredNamespaceUri "http://purl.org/ontology/dso#" ;
+        dct:description "A micro-ontology that defines a set of typical document-related services such as provided by libraries, museums and archives."@en ; 
+        dct:modified "{GIT_REVISION_DATE}"^^xsd:date ;
+        owl:versionInfo "{VERSION}" ;
+        cc:license <http://creativecommons.org/licenses/by/3.0/> ;
+        dct:creator "Jakob Voß" 
+    .
 
 # Overview
 
@@ -85,7 +96,8 @@ or [schema:Product] from schema.org vocabulary, and [gr:Offering] or
     dso:DocumentService a owl:Class ;
         rdfs:label "DocumentService" ;
         rdfs:seeAlso ssso:ServiceEvent, gr:Offering, schema:Offer ;
-        rdfs:isDefinedBy <> .
+        rdfs:isDefinedBy <> ;
+        vs:term_status "testing" .
 
 [ssso:ServiceEvent]: http://purl.org/ontology/ssso#ServiceEvent
 [schema:Offer]: http://schema.org/Offer
@@ -106,7 +118,8 @@ consumer (e.g. a library patron).
     dso:Loan a owl:Class ;
         rdfs:label "Loan" ;
         rdfs:subClassOf dso:DocumentService ;
-        rdfs:isDefinedBy <> .
+        rdfs:isDefinedBy <> ;
+        vs:term_status "testing" .
 
 ## Presentation
 
@@ -119,7 +132,8 @@ or museum.
     dso:Presentation a owl:Class ;
         rdfs:label "Presentation" ;
         rdfs:subClassOf dso:DocumentService ;
-        rdfs:isDefinedBy <> .
+        rdfs:isDefinedBy <> ;
+        vs:term_status "testing" .
 
 ## Interloan
 
@@ -130,7 +144,8 @@ For interloan a document is made accessible mediated by another institution.
     dso:Interloan a owl:Class ;
         rdfs:label "Interloan" ;
         rdfs:subClassOf dso:DocumentService ;
-        rdfs:isDefinedBy <> .
+        rdfs:isDefinedBy <> ;
+        vs:term_status "testing" .
 
 ## OpenAccess
 
@@ -142,7 +157,8 @@ restrictions by the service provider (Open Access or free copies).
     dso:OpenAccess a owl:Class ;
         rdfs:label "OpenAccess" ;
         rdfs:subClassOf dso:DocumentService ;
-        rdfs:isDefinedBy <> .
+        rdfs:isDefinedBy <> ;
+        vs:term_status "testing" .
 
 
 ## Digitization
@@ -152,8 +168,13 @@ restrictions by the service provider (Open Access or free copies).
 A digitization [DocumentService] creates a digital document from a physical
 document, for instance a digital photograph or a 3D-scan of a physical object.
 
-*This class is just a suggestion!*
+    dso:OpenAccess a owl:Class ;
+        rdfs:label "Digitization" ;
+        rdfs:subClassOf dso:DocumentService ;
+        rdfs:isDefinedBy <> ;
+        vs:term_status "unstable" .
 
+*This class is experimental!*
 
 ## Identification
 
@@ -161,7 +182,7 @@ A service to identify a document that is only known with limited properties
 (e.g. only parts of the title). In RDF such document is typically expressed by
 a blank node.
 
-*This class is experimental!*
+*This class is just a suggestion!*
 
 # Properties
 
@@ -180,7 +201,8 @@ sub-properties, such as [daia:availableFor] and [daia:unavailableFor].
         owl:inverseOf dso:hasService ;
         rdfs:seeAlso foaf:Document, bibo:Document ;
         rdfs:seeAlso daia:availableFor, daia:unavailableFor ;
-        rdfs:isDefinedBy <> .
+        rdfs:isDefinedBy <> ;
+        vs:term_status "testing" .
 
 [daia:availableFor]: http://purl.org/ontology/daia/availableFor 
 [daia:unavailableFor]: http://purl.org/ontology/daia/unavailableFor 
@@ -197,7 +219,8 @@ Relates a document to a [DocumentService].
         owl:inverseOf dso:hasDocument ;
         rdfs:seeAlso foaf:Document, bibo:Document ;
         rdfs:seeAlso daia:availableFor, daia:unavailableFor ;
-        rdfs:isDefinedBy <> .
+        rdfs:isDefinedBy <> ;
+        vs:term_status "testing" .
 
 # Related ontologies
 
