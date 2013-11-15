@@ -1,16 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rdf:RDF xmlns:bibo="http://purl.org/ontology/bibo/" xmlns:daia="http://purl.org/ontology/daia/" xmlns:dso="http://purl.org/ontology/dso#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:gr="http://purl.org/goodrelations/v1#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:schema="http://schema.org/" xmlns:ssso="http://purl.org/ontology/ssso#" xmlns:vann="http://purl.org/vocab/vann/">
+<rdf:RDF xmlns:bibo="http://purl.org/ontology/bibo/" xmlns:cc="http://creativecommons.org/ns#" xmlns:daia="http://purl.org/ontology/daia/" xmlns:dct="http://purl.org/dc/terms/" xmlns:dso="http://purl.org/ontology/dso#" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:gr="http://purl.org/goodrelations/v1#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:schema="http://schema.org/" xmlns:ssso="http://purl.org/ontology/ssso#" xmlns:vann="http://purl.org/vocab/vann/" xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
   <rdf:Description rdf:about="http://purl.org/ontology/dso">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/ontology/dso">
-    <rdfs:label>Document Service Ontology</rdfs:label>
+    <dct:title>Document Service Ontology</dct:title>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/ontology/dso">
     <rdfs:label>DSO</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/ontology/dso">
     <vann:preferredNamespacePrefix>dso</vann:preferredNamespacePrefix>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso">
+    <vann:preferredNamespaceUri>http://purl.org/ontology/dso#</vann:preferredNamespaceUri>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso">
+    <dct:description xml:lang="en">A micro-ontology that defines a set of typical document-related services such as provided by libraries, museums and archives.</dct:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso">
+    <dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-11-15</dct:modified>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso">
+    <owl:versionInfo>0.6.0rev1</owl:versionInfo>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso">
+    <cc:license rdf:resource="http://creativecommons.org/licenses/by/3.0/"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso">
+    <dct:creator>Jakob Voß</dct:creator>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/ontology/dso#DocumentService">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -30,6 +48,9 @@
   <rdf:Description rdf:about="http://purl.org/ontology/dso#DocumentService">
     <rdfs:isDefinedBy rdf:resource="http://purl.org/ontology/dso"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#DocumentService">
+    <vs:term_status>testing</vs:term_status>
+  </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/ontology/dso#Loan">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
@@ -41,6 +62,9 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/ontology/dso#Loan">
     <rdfs:isDefinedBy rdf:resource="http://purl.org/ontology/dso"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#Loan">
+    <vs:term_status>testing</vs:term_status>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/ontology/dso#Presentation">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -54,6 +78,9 @@
   <rdf:Description rdf:about="http://purl.org/ontology/dso#Presentation">
     <rdfs:isDefinedBy rdf:resource="http://purl.org/ontology/dso"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#Presentation">
+    <vs:term_status>testing</vs:term_status>
+  </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/ontology/dso#Interloan">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
@@ -66,6 +93,9 @@
   <rdf:Description rdf:about="http://purl.org/ontology/dso#Interloan">
     <rdfs:isDefinedBy rdf:resource="http://purl.org/ontology/dso"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#Interloan">
+    <vs:term_status>testing</vs:term_status>
+  </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/ontology/dso#OpenAccess">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
   </rdf:Description>
@@ -77,6 +107,24 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/ontology/dso#OpenAccess">
     <rdfs:isDefinedBy rdf:resource="http://purl.org/ontology/dso"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#OpenAccess">
+    <vs:term_status>testing</vs:term_status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#OpenAccess">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#OpenAccess">
+    <rdfs:label>Digitization</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#OpenAccess">
+    <rdfs:subClassOf rdf:resource="http://purl.org/ontology/dso#DocumentService"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#OpenAccess">
+    <rdfs:isDefinedBy rdf:resource="http://purl.org/ontology/dso"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#OpenAccess">
+    <vs:term_status>unstable</vs:term_status>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/ontology/dso#hasDocument">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
@@ -105,6 +153,9 @@
   <rdf:Description rdf:about="http://purl.org/ontology/dso#hasDocument">
     <rdfs:isDefinedBy rdf:resource="http://purl.org/ontology/dso"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#hasDocument">
+    <vs:term_status>testing</vs:term_status>
+  </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/ontology/dso#hasService">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </rdf:Description>
@@ -131,5 +182,8 @@
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/ontology/dso#hasService">
     <rdfs:isDefinedBy rdf:resource="http://purl.org/ontology/dso"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/ontology/dso#hasService">
+    <vs:term_status>testing</vs:term_status>
   </rdf:Description>
 </rdf:RDF>
