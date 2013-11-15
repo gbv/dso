@@ -24,7 +24,7 @@
     vann:preferredNamespaceUri "http://purl.org/ontology/dso#" ;
     a owl:Ontology ;
     rdfs:label "DSO" ;
-    owl:versionInfo "0.6.2" .
+    owl:versionInfo "0.6.2rev1" .
 
 dso:DocumentService
     a owl:Class ;
