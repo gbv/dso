@@ -94,7 +94,7 @@ or [schema:Product] from schema.org vocabulary, and [gr:Offering] or
 [gr:ProductOrService] from GoodRelations vocabulary.
 
     dso:DocumentService a owl:Class ;
-        rdfs:label "DocumentService" ;
+        rdfs:label "DocumentService"@en ;
         rdfs:seeAlso ssso:ServiceEvent, gr:Offering, schema:Offer ;
         rdfs:isDefinedBy <> ;
         vs:term_status "testing" .
@@ -116,7 +116,7 @@ rights of a document from a service provider (e.g. a library) to a service
 consumer (e.g. a library patron).
 
     dso:Loan a owl:Class ;
-        rdfs:label "Loan" ;
+        rdfs:label "Loan"@en ;
         rdfs:subClassOf dso:DocumentService ;
         rdfs:isDefinedBy <> ;
         vs:term_status "testing" .
@@ -130,7 +130,7 @@ document in a restricted environment, e.g.  within the rooms or in the intranet
 of a library or museum.
 
     dso:Presentation a owl:Class ;
-        rdfs:label "Presentation" ;
+        rdfs:label "Presentation"@en ;
         rdfs:subClassOf dso:DocumentService ;
         rdfs:isDefinedBy <> ;
         vs:term_status "testing" .
@@ -143,7 +143,7 @@ For an interloan [DocumentService] a document is made accessible mediated by
 another institution.
 
     dso:Interloan a owl:Class ;
-        rdfs:label "Interloan" ;
+        rdfs:label "Interloan"@en ;
         rdfs:subClassOf dso:DocumentService ;
         rdfs:isDefinedBy <> ;
         vs:term_status "testing" .
@@ -156,7 +156,7 @@ An Open Access [DocumentService] implies to free accessibility of a document
 without any restrictions by the service provider (Open Access or free copies).
 
     dso:OpenAccess a owl:Class ;
-        rdfs:label "OpenAccess" ;
+        rdfs:label "OpenAccess"@en ;
         rdfs:subClassOf dso:DocumentService ;
         rdfs:isDefinedBy <> ;
         vs:term_status "testing" .
@@ -170,7 +170,7 @@ A digitization [DocumentService] creates a digital document from a physical
 document, for instance a digital photograph or a 3D-scan of a physical object.
 
     dso:OpenAccess a owl:Class ;
-        rdfs:label "Digitization" ;
+        rdfs:label "Digitization"@en ;
         rdfs:subClassOf dso:DocumentService ;
         rdfs:isDefinedBy <> ;
         vs:term_status "unstable" .
@@ -197,7 +197,7 @@ service.  To express more specific relations, one should define and use
 sub-properties, such as [daia:availableFor] and [daia:unavailableFor].
 
     dso:hasDocument a owl:ObjectProperty ;
-        rdfs:label "hasDocument" ;
+        rdfs:label "hasDocument"@en ;
         rdfs:domain dso:DocumentService ;
         owl:inverseOf dso:hasService ;
         rdfs:seeAlso foaf:Document, bibo:Document ;
@@ -215,7 +215,7 @@ sub-properties, such as [daia:availableFor] and [daia:unavailableFor].
 Relates a document to a [DocumentService].
 
     dso:hasService a owl:ObjectProperty ;
-        rdfs:label "hasService" ;
+        rdfs:label "hasService"@en ;
         rdfs:range dso:DocumentService ;
         owl:inverseOf dso:hasDocument ;
         rdfs:seeAlso foaf:Document, bibo:Document ;
