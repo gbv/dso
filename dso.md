@@ -16,8 +16,8 @@ available at <http://github.com/gbv/dso>.
 This is version {VERSION}, last modified at {GIT_REVISION_DATE} with revision
 {GIT_REVISION_HASH}.
 
-The current version of this ontology is a preliminary draft for open
-discussion. [Feedback](https://github.com/gbv/dso/issues) is welcome!
+The current version of this ontology is a draft for open discussion.
+[Feedback](https://github.com/gbv/dso/issues) is welcome!
 
 **Revision history**
 
@@ -35,19 +35,20 @@ is <http://purl.org/ontology/dso>.
 
 The following namespace prefixes are used to refer to [related ontologies]:
 
-    @prefix bibo:   <http://purl.org/ontology/bibo/> .
-    @prefix cc:     <http://creativecommons.org/ns#> .
-    @prefix daia:   <http://purl.org/ontology/daia/> .
-    @prefix dct:    <http://purl.org/dc/terms/> .
-    @prefix foaf:   <http://xmlns.com/foaf/0.1/> .
-    @prefix gr:     <http://purl.org/goodrelations/v1#> .
-    @prefix owl:    <http://www.w3.org/2002/07/owl#> .
-    @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-    @prefix schema: <http://schema.org/> .
-    @prefix ssso:   <http://purl.org/ontology/ssso#> .
-    @prefix vann:   <http://purl.org/vocab/vann/> .
-    @prefix vs:     <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
-    @prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+    @prefix bibo:    <http://purl.org/ontology/bibo/> .
+    @prefix cc:      <http://creativecommons.org/ns#> .
+    @prefix daia:    <http://purl.org/ontology/daia/> .
+    @prefix dct:     <http://purl.org/dc/terms/> .
+    @prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+    @prefix gr:      <http://purl.org/goodrelations/v1#> .
+    @prefix owl:     <http://www.w3.org/2002/07/owl#> .
+    @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+    @prefix schema:  <http://schema.org/> .
+    @prefix service: <http://purl.org/ontology/service#> .
+    @prefix ssso:    <http://purl.org/ontology/ssso#> .
+    @prefix vann:    <http://purl.org/vocab/vann/> .
+    @prefix vs:      <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+    @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 
 The Document Service Ontology (DSO) is defined in RDF/Turtle as following:
 
@@ -82,20 +83,23 @@ context of GLAM (galleries, libraries, archives, and museums) institutions.
 [foaf:Document]: http://xmlns.com/foaf/0.1/Document
 [schema:CreativeWork]: http://schema.org/CreativeWork
 
-# Document service class
+# DocumentService
 
-[DocumentService]: #document-service-class
+[DocumentService]: #documentservice
+[Service]: http://dini-ag-kim.github.io/service-ontology/service.html#Service
 
-A document service is a kind of service that is somehow related to one or more
-documents. To indicate the specific type of document service, one should use a
-subclass of this class and assing additional service types, such as
-[ssso:ServiceEvent] from the Simple Service Status Ontology, [schema:Offer]
-or [schema:Product] from schema.org vocabulary, and [gr:Offering] or
-[gr:ProductOrService] from GoodRelations vocabulary.
+A document service is a kind of [Service], as defined in the [Service
+Ontology], that is somehow related to one or more documents. To indicate the
+specific type of document service, one should use a subclass of this class and
+assing additional service types, such as [ssso:ServiceEvent] from the Simple
+Service Status Ontology, [schema:Offer] or [schema:Product] from schema.org
+vocabulary, and [gr:Offering] or [gr:ProductOrService] from GoodRelations
+vocabulary.
 
     dso:DocumentService a owl:Class ;
         rdfs:label "DocumentService"@en ;
         rdfs:seeAlso ssso:ServiceEvent, gr:Offering, schema:Offer ;
+        rdfs:subClassOf service:Service ;
         rdfs:isDefinedBy <> ;
         vs:term_status "testing" .
 
@@ -230,13 +234,13 @@ Relates a document to a [DocumentService].
 The Document Service Ontology is part of a set of micro-ontologies originally
 created to describe several aspects of libraries and similar institutions. Some
 services defined in DSO have earlier been defined as part of the DAIA ontology,
-which now makes use of DSO. The core concept of a service was based on the
-definition of a service event in the Simple Service Status Ontology (SSSO), but
-broadened to other kinds of services, for instance Products or Offerings as
-defined in the GoodRelations vocabulary and in schema.org vocabulary. DSO does
-not make formal assumptions about the types of documents. Suitable document
-classes are defined in the Bibliographic Ontology, in the FOAF vocabulary and
-in schema.org.
+which now makes use of DSO. The core concept of a service was first based on
+the definition of a service event in the Simple Service Status Ontology (SSSO),
+but broadened to the class [service:Service] which includes any kinds of
+services, for instance Products or Offerings as defined in the GoodRelations
+vocabulary and in Schema.org vocabulary. DSO does not make formal assumptions
+about the types of documents. Suitable document classes are defined in the
+Bibliographic Ontology, in the FOAF vocabulary and in Schema.org Vocabulary.
 
 # References
 
@@ -244,6 +248,9 @@ in schema.org.
 
 * T. Berners-Lee et al.: *Uniform Resource Identifiers (URI): Generic Syntax*.
   August 1998 <http://tools.ietf.org/html/rfc2396>.
+
+* J. Voß: *The Service Ontology*.
+  November 2013 <http://dini-ag-kim.github.io/service-ontology/>.
 
 ## Informative References
 
@@ -268,3 +275,4 @@ in schema.org.
 * *schema.org Vocabulary*. 
   <http://schema.org/>
 
+[Service Ontology]: http://dini-ag-kim.github.io/service-ontology/
