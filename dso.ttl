@@ -9,8 +9,10 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <http://schema.org/> .
+@prefix service: <http://purl.org/ontology/service#> .
 @prefix ssso: <http://purl.org/ontology/ssso#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -18,46 +20,47 @@
     cc:license <http://creativecommons.org/licenses/by/3.0/> ;
     dct:creator "Jakob Voß" ;
     dct:description "A micro-ontology that defines a set of typical document-related services such as provided by libraries, museums and archives."@en ;
-    dct:modified "2013-11-15"^^xsd:date ;
+    dct:modified "2013-12-04"^^xsd:date ;
     dct:title "Document Service Ontology" ;
     vann:preferredNamespacePrefix "dso" ;
     vann:preferredNamespaceUri "http://purl.org/ontology/dso#" ;
-    a owl:Ontology ;
+    a voaf:Vocabulary, owl:Ontology ;
     rdfs:label "DSO" ;
-    owl:versionInfo "0.6.2rev1" .
+    owl:versionInfo "0.6.4" .
 
 dso:DocumentService
     a owl:Class ;
     rdfs:isDefinedBy <http://purl.org/ontology/dso> ;
-    rdfs:label "DocumentService" ;
+    rdfs:label "DocumentService"@en ;
     rdfs:seeAlso gr:Offering, ssso:ServiceEvent, schema:Offer ;
+    rdfs:subClassOf service:Service ;
     vs:term_status "testing" .
 
 dso:Interloan
     a owl:Class ;
     rdfs:isDefinedBy <http://purl.org/ontology/dso> ;
-    rdfs:label "Interloan" ;
+    rdfs:label "Interloan"@en ;
     rdfs:subClassOf dso:DocumentService ;
     vs:term_status "testing" .
 
 dso:Loan
     a owl:Class ;
     rdfs:isDefinedBy <http://purl.org/ontology/dso> ;
-    rdfs:label "Loan" ;
+    rdfs:label "Loan"@en ;
     rdfs:subClassOf dso:DocumentService ;
     vs:term_status "testing" .
 
 dso:OpenAccess
     a owl:Class ;
     rdfs:isDefinedBy <http://purl.org/ontology/dso> ;
-    rdfs:label "Digitization", "OpenAccess" ;
+    rdfs:label "Digitization"@en, "OpenAccess"@en ;
     rdfs:subClassOf dso:DocumentService ;
     vs:term_status "testing", "unstable" .
 
 dso:Presentation
     a owl:Class ;
     rdfs:isDefinedBy <http://purl.org/ontology/dso> ;
-    rdfs:label "Presentation" ;
+    rdfs:label "Presentation"@en ;
     rdfs:subClassOf dso:DocumentService ;
     vs:term_status "testing" .
 
@@ -65,7 +68,7 @@ dso:hasDocument
     a owl:ObjectProperty ;
     rdfs:domain dso:DocumentService ;
     rdfs:isDefinedBy <http://purl.org/ontology/dso> ;
-    rdfs:label "hasDocument" ;
+    rdfs:label "hasDocument"@en ;
     rdfs:seeAlso bibo:Document, daia:availableFor, daia:unavailableFor, foaf:Document ;
     owl:inverseOf dso:hasService ;
     vs:term_status "testing" .
@@ -73,7 +76,7 @@ dso:hasDocument
 dso:hasService
     a owl:ObjectProperty ;
     rdfs:isDefinedBy <http://purl.org/ontology/dso> ;
-    rdfs:label "hasService" ;
+    rdfs:label "hasService"@en ;
     rdfs:range dso:DocumentService ;
     rdfs:seeAlso bibo:Document, daia:availableFor, daia:unavailableFor, foaf:Document ;
     owl:inverseOf dso:hasDocument ;
