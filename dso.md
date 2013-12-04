@@ -16,8 +16,8 @@ available at <http://github.com/gbv/dso>.
 This is version {VERSION}, last modified at {GIT_REVISION_DATE} with revision
 {GIT_REVISION_HASH}.
 
-The current version of this ontology is a preliminary draft for open
-discussion. [Feedback](https://github.com/gbv/dso/issues) is welcome!
+The current version of this ontology is a draft for open discussion.
+[Feedback](https://github.com/gbv/dso/issues) is welcome!
 
 **Revision history**
 
@@ -84,16 +84,18 @@ context of GLAM (galleries, libraries, archives, and museums) institutions.
 [foaf:Document]: http://xmlns.com/foaf/0.1/Document
 [schema:CreativeWork]: http://schema.org/CreativeWork
 
-# Document service class
+# DocumentService
 
-[DocumentService]: #document-service-class
+[DocumentService]: #documentservice
+[Service]: http://dini-ag-kim.github.io/service-ontology/service.html#Service
 
-A document service is a kind of service that is somehow related to one or more
-documents. To indicate the specific type of document service, one should use a
-subclass of this class and assing additional service types, such as
-[ssso:ServiceEvent] from the Simple Service Status Ontology, [schema:Offer]
-or [schema:Product] from schema.org vocabulary, and [gr:Offering] or
-[gr:ProductOrService] from GoodRelations vocabulary.
+A document service is a kind of [Service], as defined in the [Service
+Ontology], that is somehow related to one or more documents. To indicate the
+specific type of document service, one should use a subclass of this class and
+assing additional service types, such as [ssso:ServiceEvent] from the Simple
+Service Status Ontology, [schema:Offer] or [schema:Product] from schema.org
+vocabulary, and [gr:Offering] or [gr:ProductOrService] from GoodRelations
+vocabulary.
 
     dso:DocumentService a owl:Class ;
         rdfs:label "DocumentService"@en ;
@@ -234,13 +236,13 @@ Relates a document to a [DocumentService].
 The Document Service Ontology is part of a set of micro-ontologies originally
 created to describe several aspects of libraries and similar institutions. Some
 services defined in DSO have earlier been defined as part of the DAIA ontology,
-which now makes use of DSO. The core concept of a service was based on the
-definition of a service event in the Simple Service Status Ontology (SSSO), but
-broadened to other kinds of services, for instance Products or Offerings as
-defined in the GoodRelations vocabulary and in schema.org vocabulary. DSO does
-not make formal assumptions about the types of documents. Suitable document
-classes are defined in the Bibliographic Ontology, in the FOAF vocabulary and
-in schema.org.
+which now makes use of DSO. The core concept of a service was first based on
+the definition of a service event in the Simple Service Status Ontology (SSSO),
+but broadened to the class [service:Service] which includes any kinds of
+services, for instance Products or Offerings as defined in the GoodRelations
+vocabulary and in Schema.org vocabulary. DSO does not make formal assumptions
+about the types of documents. Suitable document classes are defined in the
+Bibliographic Ontology, in the FOAF vocabulary and in Schema.org Vocabulary.
 
 # References
 
@@ -275,3 +277,4 @@ in schema.org.
 * *schema.org Vocabulary*. 
   <http://schema.org/>
 
+[Service Ontology]: http://dini-ag-kim.github.io/service-ontology/
