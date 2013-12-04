@@ -35,23 +35,25 @@ is <http://purl.org/ontology/dso>.
 
 The following namespace prefixes are used to refer to [related ontologies]:
 
-    @prefix bibo:   <http://purl.org/ontology/bibo/> .
-    @prefix cc:     <http://creativecommons.org/ns#> .
-    @prefix daia:   <http://purl.org/ontology/daia/> .
-    @prefix dct:    <http://purl.org/dc/terms/> .
-    @prefix foaf:   <http://xmlns.com/foaf/0.1/> .
-    @prefix gr:     <http://purl.org/goodrelations/v1#> .
-    @prefix owl:    <http://www.w3.org/2002/07/owl#> .
-    @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-    @prefix schema: <http://schema.org/> .
-    @prefix ssso:   <http://purl.org/ontology/ssso#> .
-    @prefix vann:   <http://purl.org/vocab/vann/> .
-    @prefix vs:     <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
-    @prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+    @prefix bibo:    <http://purl.org/ontology/bibo/> .
+    @prefix cc:      <http://creativecommons.org/ns#> .
+    @prefix daia:    <http://purl.org/ontology/daia/> .
+    @prefix dct:     <http://purl.org/dc/terms/> .
+    @prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+    @prefix gr:      <http://purl.org/goodrelations/v1#> .
+    @prefix owl:     <http://www.w3.org/2002/07/owl#> .
+    @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+    @prefix schema:  <http://schema.org/> .
+    @prefix service: <http://purl.org/ontology/service#> .
+    @prefix ssso:    <http://purl.org/ontology/ssso#> .
+    @prefix vann:    <http://purl.org/vocab/vann/> .
+    @prefix voaf:    <http://purl.org/vocommons/voaf#> .
+    @prefix vs:      <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+    @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 
 The Document Service Ontology (DSO) is defined in RDF/Turtle as following:
 
-    <> a owl:Ontology ;
+    <> a owl:Ontology, voaf:Vocabulary ;
         dct:title "Document Service Ontology" ;
         rdfs:label "DSO" ;
         vann:preferredNamespacePrefix "dso" ;
@@ -95,10 +97,12 @@ or [schema:Product] from schema.org vocabulary, and [gr:Offering] or
 
     dso:DocumentService a owl:Class ;
         rdfs:label "DocumentService"@en ;
-        rdfs:seeAlso ssso:ServiceEvent, gr:Offering, schema:Offer ;
+        rdfs:subClassOf service:Service ;
         rdfs:isDefinedBy <> ;
+        rdfs:seeAlso ssso:ServiceEvent, gr:Offering, schema:Offer ;
         vs:term_status "testing" .
 
+[service:Service]: http://purl.org/ontology/service#Service
 [ssso:ServiceEvent]: http://purl.org/ontology/ssso#ServiceEvent
 [schema:Offer]: http://schema.org/Offer
 [schema:Product]: http:/schema.org/Product
@@ -244,6 +248,9 @@ in schema.org.
 
 * T. Berners-Lee et al.: *Uniform Resource Identifiers (URI): Generic Syntax*.
   August 1998 <http://tools.ietf.org/html/rfc2396>.
+
+* J. Voß: *The Service Ontology*.
+  December 2013 <http://purl.org/ontology/service>.
 
 ## Informative References
 
