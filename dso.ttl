@@ -20,13 +20,13 @@
     cc:license <http://creativecommons.org/licenses/by/3.0/> ;
     dct:creator "Jakob Voß" ;
     dct:description "A micro-ontology that defines a set of typical document-related services such as provided by libraries, museums and archives."@en ;
-    dct:modified "2013-12-04"^^xsd:date ;
+    dct:modified "2013-12-05"^^xsd:date ;
     dct:title "Document Service Ontology" ;
     vann:preferredNamespacePrefix "dso" ;
     vann:preferredNamespaceUri "http://purl.org/ontology/dso#" ;
     a voaf:Vocabulary, owl:Ontology ;
     rdfs:label "DSO" ;
-    owl:versionInfo "0.6.5" .
+    owl:versionInfo "0.6.5rev1" .
 
 dso:DocumentService
     a owl:Class ;
