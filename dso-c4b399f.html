@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Jakob Voß (VZG)" />
+  <meta name="date" content="2013-03-19 09:39:03 +0100" />
+  <title>Document Service Ontology (DSO)</title>
+   <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <style type="text/css">
+  body { font-family: sans-serif; }
+  a { text-decoration: none }
+  a:hover { text-decoration: underline }
+  h1 { font: 170% sans-serif }
+  h2 { font: 140% sans-serif }
+  h3 { font: 120% sans-serif }
+  dt { font-weight: bold; }
+  h1, h2, h3, h1 a, h2 a, h3 a { color: #005A9C; }
+  table { border-collapse: collapse; }
+  td { border: 1px solid #999; padding: 3px }
+  dl p { margin-top: 0; }
+  dt { margin-top: 0.8em; }
+  dd { margin-left: 1.5em; }
+  ol { margin-bottom: 1em; }
+  table + p { margin-top: 1em; }
+  </style>
+</head>
+<body>
+<header>
+<h1 class="title">Document Service Ontology (DSO)</h1>
+<h3 class="author">Jakob Voß (VZG)</h3>
+<h4 class="date">2013-03-19 09:39:03 +0100</h4>
+</header>
+
+<h1>Table of Contents</h1>
+<nav id="TOC">
+<ul>
+<li><a href="#introduction"><span class="toc-section-number">1</span> Introduction</a><ul>
+<li><a href="#status-of-this-document"><span class="toc-section-number">1.1</span> Status of this document</a></li>
+<li><a href="#terminology"><span class="toc-section-number">1.2</span> Terminology</a></li>
+<li><a href="#namespaces-and-ontology"><span class="toc-section-number">1.3</span> Namespaces and ontology</a></li>
+</ul></li>
+<li><a href="#overview"><span class="toc-section-number">2</span> Overview</a></li>
+<li><a href="#classes"><span class="toc-section-number">3</span> Classes</a><ul>
+<li><a href="#service"><span class="toc-section-number">3.1</span> Service</a></li>
+<li><a href="#loan"><span class="toc-section-number">3.2</span> Loan</a></li>
+<li><a href="#presentation"><span class="toc-section-number">3.3</span> Presentation</a></li>
+<li><a href="#interloan"><span class="toc-section-number">3.4</span> Interloan</a></li>
+<li><a href="#openaccess"><span class="toc-section-number">3.5</span> OpenAccess</a></li>
+<li><a href="#digitization"><span class="toc-section-number">3.6</span> Digitization</a></li>
+<li><a href="#identification"><span class="toc-section-number">3.7</span> Identification</a></li>
+</ul></li>
+<li><a href="#properties"><span class="toc-section-number">4</span> Properties</a><ul>
+<li><a href="#withdocument"><span class="toc-section-number">4.1</span> withDocument</a></li>
+</ul></li>
+<li><a href="#related-ontologies"><span class="toc-section-number">5</span> Related ontologies</a></li>
+<li><a href="#references"><span class="toc-section-number">6</span> References</a><ul>
+<li><a href="#normative-references"><span class="toc-section-number">6.1</span> Normative References</a></li>
+<li><a href="#informative-references"><span class="toc-section-number">6.2</span> Informative References</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="introduction"><a href="#TOC"><span class="header-section-number">1</span> Introduction</a></h1>
+<p>The <strong>Document Service Ontology (DSO)</strong> is a micro-ontology that defines a set of typical document-related services such as provided by libraries, museums and archives.</p>
+<a id="Status of this document"></a><h2 id="status-of-this-document"><a href="#TOC"><span class="header-section-number">1.1</span> Status of this document</a></h2>
+<p>This HTML document and RDF serializations of the Document Service Ontology (<a href="dso.ttl"><strong><code>dso.ttl</code></strong></a> in RDF/Turtle and <a href="dso.owl"><strong><code>ssss.owl</code></strong></a> in RDF/XML) are generated automatically from a source file written in Pandoc Markdown syntax. Sources and updates are available at <a href="http://github.com/gbv/dso"><code class="url">http://github.com/gbv/dso</code></a>. The current version of this document was last modified at 2013-03-19 09:39:03 +0100 with revision <a href="http://github.com/gbv/dso/commit/c4b399fd2463e2e31b2f35da49014d1856593870">c4b399f</a>.</p>
+<p>The current version of this ontology is a preliminary draft for open discussion.</p>
+<a id="Terminology"></a><h2 id="terminology"><a href="#TOC"><span class="header-section-number">1.2</span> Terminology</a></h2>
+<p>The keywords &quot;MUST&quot;, &quot;MUST NOT&quot;, &quot;REQUIRED&quot;, &quot;SHALL&quot;, &quot;SHALL NOT&quot;, &quot;SHOULD&quot;, &quot;SHOULD NOT&quot;, &quot;RECOMMENDED&quot;, &quot;MAY&quot;, and &quot;OPTIONAL&quot; in this document are to be interpreted as described in RFC 2119.</p>
+<a id="Namespaces and ontology"></a><h2 id="namespaces-and-ontology"><a href="#TOC"><span class="header-section-number">1.3</span> Namespaces and ontology</a></h2>
+<p>The URI namespace of this ontology is <a href="http://purl.org/ontology/dso#"><code class="url">http://purl.org/ontology/dso#</code></a>. The namespace prefix <code>dso</code> is recommeded. The URI of this ontology as a whole is <a href="http://purl.org/ontology/dso"><code class="url">http://purl.org/ontology/dso</code></a>.</p>
+<pre><code>@prefix dso: &lt;http://purl.org/ontology/dso#&gt; .
+@base        &lt;http://purl.org/ontology/dso&gt; .</code></pre>
+<p>The following namspace prefixes are used to refer to <a href="#related-ontologies">related ontologies</a>:</p>
+<pre><code>@prefix bibo:  &lt;http://purl.org/ontology/bibo/&gt; .
+@prefix foaf:  &lt;http://xmlns.com/foaf/0.1/&gt; .
+@prefix owl:   &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix rdfs:  &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix ssso:  &lt;http://purl.org/ontology/ssso#&gt; .
+@prefix vann:  &lt;http://purl.org/vocab/vann/&gt; .</code></pre>
+<p>The Document Service Ontology (DSO) is defined in RDF/Turtle as following:</p>
+<pre><code>&lt;&gt; a owl:Ontology ;
+    rdfs:label &quot;Document Service Ontology&quot; ;
+    rdfs:label &quot;DSO&quot; ;
+    vann:preferredNamespacePrefix &quot;dso&quot; .</code></pre>
+<h1 id="overview"><a href="#TOC"><span class="header-section-number">2</span> Overview</a></h1>
+<p>...</p>
+<p>This ontology does not make any assumptions about types of documents. A document may be an abstract entity (e.g. a work or an edition of a book), a physical or digital copy, or a unique object (e.g. a statue in a museum).</p>
+<p>...</p>
+<h1 id="classes"><a href="#TOC"><span class="header-section-number">3</span> Classes</a></h1>
+<a id="Service"></a><h2 id="service"><a href="#TOC"><span class="header-section-number">3.1</span> Service</a></h2>
+<p>A document service is a kind of service event (<a href="http://purl.org/ontology/ssso#ServiceEvent">ssso:ServiceEvent</a>) that is somehow related to one or more documents.</p>
+<pre><code>dso:Service a owl:Class ;
+    rdfs:label &quot;Service&quot; ;
+    rdfs:subClassOf ssso:ServiceEvent ;
+    rdfs:isDefinedBy &lt;&gt; .</code></pre>
+<p><em>should this class be renamed to &quot;DocumentService&quot;?</em></p>
+<a id="Loan"></a><h2 id="loan"><a href="#TOC"><span class="header-section-number">3.2</span> Loan</a></h2>
+<p>A loan is a service event that involes the temporary transfer of usage rights of a document from a service provider (e.g. a library) to a service consumer (e.g. a library patron).</p>
+<pre><code>dso:Loan a owl:Class ;
+    rdfs:label &quot;Loan&quot; ;
+    rdfs:subClassOf dso:Service ;
+    rdfs:isDefinedBy &lt;&gt; .</code></pre>
+<a id="Presentation"></a><h2 id="presentation"><a href="#TOC"><span class="header-section-number">3.3</span> Presentation</a></h2>
+<p>A presentation involves the display or similar usage of a document in a restricted environment, e.g. within the rooms or in the intranet of a library or museum.</p>
+<pre><code>dso:Presentation a owl:Class ;
+    rdfs:label &quot;Presentation&quot; ;
+    rdfs:subClassOf dso:Service ;
+    rdfs:isDefinedBy &lt;&gt; .</code></pre>
+<a id="Interloan"></a><h2 id="interloan"><a href="#TOC"><span class="header-section-number">3.4</span> Interloan</a></h2>
+<p>For interloan a document is made accessible mediated by another institution.</p>
+<pre><code>dso:Interloan a owl:Class ;
+    rdfs:label &quot;Interloan&quot; ;
+    rdfs:subClassOf dso:Service ;
+    rdfs:isDefinedBy &lt;&gt; .</code></pre>
+<a id="OpenAccess"></a><h2 id="openaccess"><a href="#TOC"><span class="header-section-number">3.5</span> OpenAccess</a></h2>
+<p>An Open Access service implies to free accessibility of a document without any restrictions by the service provider (Open Access or free copies).</p>
+<pre><code>dso:OpenAccess a owl:Class ;
+    rdfs:label &quot;OpenAccess&quot; ;
+    rdfs:subClassOf dso:Service ;
+    rdfs:isDefinedBy &lt;&gt; .</code></pre>
+<a id="Digitization"></a><h2 id="digitization"><a href="#TOC"><span class="header-section-number">3.6</span> Digitization</a></h2>
+<p>A digitization service creates a digital document from a physical document, for instance a digital photograph or a 3D-scan of a physical object.</p>
+<p><em>This class is just a suggestion!</em></p>
+<a id="Identification"></a><h2 id="identification"><a href="#TOC"><span class="header-section-number">3.7</span> Identification</a></h2>
+<p>A service to identify a document that is only known with limited properties (e.g. only parts of the title). In RDF such document is typically expressed by a blank node.</p>
+<p><em>This class is just a suggestion!</em></p>
+<h1 id="properties"><a href="#TOC"><span class="header-section-number">4</span> Properties</a></h1>
+<a id="withDocument"></a><h2 id="withdocument"><a href="#TOC"><span class="header-section-number">4.1</span> withDocument</a></h2>
+<p>Relates a document <a href="#service">service</a> to a document. The relation is rather lax as it only tells that a specific document is somehow involved in a specific document service event. To express more reliable relations, one should define and use more specific sub-properties, such as [daia:availableFor] and [daia:unavailableFor].</p>
+<pre><code>dso:withDocument a owl:ObjectProperty ;
+    rdfs:label &quot;withDocument&quot; ;
+    rdfs:domain dso:Service ;
+    rdfs:range bibo:Document, foaf:Document ;
+    owl:inverseOf ssso:consumedBy ;
+    rdfs:isDefinedBy &lt;&gt; .</code></pre>
+<h1 id="related-ontologies"><a href="#TOC"><span class="header-section-number">5</span> Related ontologies</a></h1>
+<p>The Document Service Ontology is part of a set of micro-ontologies originally created to describe several aspects of libraries and similar institutions. Some services defined in DSO have earlier been defined as part of the DAIA ontology, which now makes use of DSO. The core concept of a service is based on the definition of a service event in the Simple Service Status Ontology (SSSO).</p>
+<h1 id="references"><a href="#TOC"><span class="header-section-number">6</span> References</a></h1>
+<a id="Normative References"></a><h2 id="normative-references"><a href="#TOC"><span class="header-section-number">6.1</span> Normative References</a></h2>
+<ul>
+<li><p><strong>[RFC 2119]</strong> S. Bradner: <em>Key words for use in RFCs to Indicate Requirement Levels</em>. March 1997 <a href="http://tools.ietf.org/html/rfc2119"><code class="url">http://tools.ietf.org/html/rfc2119</code></a>.</p></li>
+<li><p><strong>[RFC 2396]</strong> T. Berners-Lee et al.: <em>Uniform Resource Identifiers (URI): Generic Syntax</em>. August 1998 <a href="http://tools.ietf.org/html/rfc2396"><code class="url">http://tools.ietf.org/html/rfc2396</code></a>.</p></li>
+<li><p><strong>[SSSO]</strong> J. Voß: <em>Simple Service Status Ontology (SSSO)</em>. February 2013 <a href="http://purl.org/ontology/ssso"><code class="url">http://purl.org/ontology/ssso</code></a>.</p></li>
+</ul>
+<a id="Informative References"></a><h2 id="informative-references"><a href="#TOC"><span class="header-section-number">6.2</span> Informative References</a></h2>
+<ul>
+<li><p><strong>[DAIA]</strong> J. Voß: <em>Document Availability Information API (DAIA)</em>. Work in progress at <a href="http://gbv.github.com/daiaspec/"><code class="url">http://gbv.github.com/daiaspec/</code></a>.</p></li>
+<li><p>...</p></li>
+</ul>
+</body>
+</html>
