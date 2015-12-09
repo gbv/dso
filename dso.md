@@ -175,7 +175,7 @@ without any restrictions by the service provider (Open Access or free copies).
 A digitization [DocumentService] creates a digital document from a physical
 document, for instance a digital photograph or a 3D-scan of a physical object.
 
-    dso:OpenAccess a owl:Class ;
+    dso:Digitization a owl:Class ;
         rdfs:label "Digitization"@en ;
         rdfs:subClassOf dso:DocumentService ;
         rdfs:isDefinedBy <> ;
